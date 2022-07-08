@@ -12,7 +12,7 @@ const username = 'Patrick Mahloy';
 
 export default function Navbar() {
 	return (
-		<div className="flex justify-between bg-blue-900 text-white py-3">
+		<div className="flex justify-between bg-blue-900 text-white py-2">
 			<span className="leading-10">
 				<a className="m-3 pl-2">
 					<FontAwesomeIcon icon={faBars} />
