@@ -12,42 +12,41 @@ const username = 'Patrick Mahloy';
 
 export default function Navbar() {
 	return (
-		<div className="flex justify-between bg-blue-900 text-white py-2">
-			<span className="leading-10">
-				<a className="m-3 pl-2">
+		<div className="flex justify-between py-0.5 bg-blue-900 text-white">
+			<div className="leading-10">
+				<a className="p-3 hover:bg-sky-500">
 					<FontAwesomeIcon icon={faBars} />
 				</a>
-				<a className="m-3">Home</a>
-				<a className="m-3">
+				<a className="p-3 hover:bg-sky-500">Home</a>
+				<a className="p-3 hover:bg-sky-500">
 					My Work <FontAwesomeIcon icon={faCaretDown} />
 				</a>
-				<a className="m-3">
+				<a className="p-3 hover:bg-sky-500">
 					Identities <FontAwesomeIcon icon={faCaretDown} />
 				</a>
-				<a className="m-3">
+				<a className="p-3 hover:bg-sky-500">
 					Applications <FontAwesomeIcon icon={faCaretDown} />
 				</a>
-				<a className="m-3">
+				<a className="p-3 hover:bg-sky-500">
 					Intelligence <FontAwesomeIcon icon={faCaretDown} />
 				</a>
-				<a className="m-3">
+				<a className="p-3 hover:bg-sky-500">
 					Setup <FontAwesomeIcon icon={faCaretDown} />
 				</a>
-			</span>
-			<span className="leading-10">
-				<a className="italic m-3">My Assets</a>
-				<a className="m-3">
+			</div>
+			<div className="leading-10">
+				<a className="italic p-3 hover:bg-sky-500">My Assets</a>
+				<a className="p-3 hover:bg-sky-500">
 					<FontAwesomeIcon icon={faGear} />
-					<FontAwesomeIcon icon={faCaretDown} className="px-1"/>
+					<FontAwesomeIcon icon={faCaretDown} className="px-1" />
 				</a>
-				<a className="m-3">
+				<a className="p-3 hover:bg-sky-500">
 					<FontAwesomeIcon icon={faBell} />
 				</a>
-
-				<a className="m-3">
+				<a className="p-3 hover:bg-sky-500">
 					{username} <FontAwesomeIcon icon={faCaretDown} />
 				</a>
-			</span>
+			</div>
 		</div>
 	);
 }
