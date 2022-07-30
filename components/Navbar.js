@@ -1,91 +1,98 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faBars,
-	faBell,
-	faCaretDown,
-	faGear
-} from '@fortawesome/free-solid-svg-icons';
+import { faBars, faBell, faGear } from '@fortawesome/free-solid-svg-icons';
 
-import NavItem from './NavItem';
+import MenuItem from './MenuItem';
 
 const username = 'Patrick Mahloy';
 
+const menu_items_Applications = ['Application Definition'];
+const menu_items_Identities = ['Identity Warehouse'];
+const menu_items_Intelligence = ['Advanced Analytics', 'Reports'];
+const menu_items_MyWork = [
+	'My Access Reviews',
+	'Access Requests',
+	'Work Items'
+];
+const menu_items_Notifications = [
+	'Work Items',
+	'Approvals',
+	'Forms',
+	'Violations',
+	'Others'
+];
+const menu_items_Setup = ['Roles', 'Policies', 'Tasks', 'Groups'];
+const menu_items_Settings = ['Global Settings'];
+const menu_items_User = ['Preferences', 'Need Help?'];
+
+const nav_styles = {
+	display: 'flex',
+	justifyContent: 'space-between',
+	backgroundColor: '#0f3b56'
+};
+
 export default function Navbar() {
 	return (
-		<div className="flex justify-between bg-blue-900 text-white">
+		<nav style={nav_styles}>
 			<div>
-				<NavItem>
-					<FontAwesomeIcon icon={faBars} />
-				</NavItem>
-				<NavItem>Home</NavItem>
-				<NavItem>
-					My Work <FontAwesomeIcon icon={faCaretDown} />
-				</NavItem>
-				<div className="hidden">
-					<a href="#">My Access Reviews</a>
-					<a href="#">Access Requests</a>
-					<a href="#">Policy Violations</a>
-					<a href="#">Work Items</a>
-				</div>
-				<NavItem>
-					Identities <FontAwesomeIcon icon={faCaretDown} />
-				</NavItem>
-				<div className="hidden">
-					<a href="#">Identity Warehouse</a>
-				</div>
-				<NavItem>
-					Applications <FontAwesomeIcon icon={faCaretDown} />
-				</NavItem>
-				<div className="hidden">
-					<a href="#">Application Definition</a>
-				</div>
-				<NavItem>
-					Intelligence <FontAwesomeIcon icon={faCaretDown} />
-				</NavItem>
-				<div className="hidden">
-					<a href="#">Advanced Analytics</a>
-					<a href="#">Reports</a>
-				</div>
-				<NavItem>
-					Setup <FontAwesomeIcon icon={faCaretDown} />
-				</NavItem>
-				<div className="hidden">
-					<a href="#">Roles</a>
-					<a href="#">Policies</a>
-					<hr />
-					<a href="#">Tasks</a>
-					<a href="#">Groups</a>
-				</div>
+				<MenuItem
+					hasCaret={false}
+					menu_title={<FontAwesomeIcon icon={faBars} />}
+					menu_items={[]}
+				/>
+        <MenuItem
+          hasCaret={false}
+          menu_title="Home"
+          menu_items={[]}
+        />
+				<MenuItem
+					hasCaret={true}
+					menu_title="My Work"
+					menu_items={menu_items_MyWork}
+				/>
+				<MenuItem
+					hasCaret={true}
+					menu_title="Identities"
+					menu_items={menu_items_Identities}
+				/>
+				<MenuItem
+					hasCaret={true}
+					menu_title="Applications"
+					menu_items={menu_items_Applications}
+				/>
+				<MenuItem
+					hasCaret={true}
+					menu_title="Intelligence"
+					menu_items={menu_items_Intelligence}
+				/>
+				<MenuItem
+					hasCaret={true}
+					menu_title="Setup"
+					menu_items={menu_items_Setup}
+				/>
 			</div>
 			<div>
-				<NavItem>My Assets</NavItem>
-				<NavItem>
-					<FontAwesomeIcon icon={faGear} />
-					<FontAwesomeIcon icon={faCaretDown} className="px-1" />
-				</NavItem>
-				<div className="hidden">
-					<a href="#">Global Settings</a>
-				</div>
-				<NavItem>
-					<FontAwesomeIcon icon={faBell} />
-				</NavItem>
-				<div className="hidden">
-					<a href="#">Work Items</a>
-					<hr />
-					<a href="#">Approvals</a>
-					<a href="#">Forms</a>
-					<a href="#">Violations</a>
-					<a href="#">Others</a>
-				</div>
-				<NavItem>
-					{username} <FontAwesomeIcon icon={faCaretDown} />
-				</NavItem>
-				<div className="hidden">
-					<a href="#">Preferences</a>
-					<a href="#">Need Help?</a>
-				</div>
+        <MenuItem
+          hasCaret={false}
+          menu_title="My Assets"
+          menu_items={[]}
+        />
+				<MenuItem
+					hasCaret={true}
+					menu_title={<FontAwesomeIcon icon={faGear} />}
+					menu_items={menu_items_Settings}
+				/>
+				<MenuItem
+					hasCaret={false}
+					menu_title={<FontAwesomeIcon icon={faBell} />}
+					menu_items={menu_items_Notifications}
+				/>
+				<MenuItem
+					hasCaret={true}
+					menu_title={username}
+					menu_items={menu_items_User}
+				/>
 			</div>
-		</div>
+		</nav>
 	);
 }
