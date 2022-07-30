@@ -1,6 +1,7 @@
 import React, { Children } from 'react';
 
 import Content from '../components/Content';
+import Footer from '../components/Footer';
 import Logo from '../components/Logo';
 import Navbar from '../components/Navbar';
 
@@ -29,6 +30,7 @@ export default function DefaultLayout() {
 				dolore. Ipsum est nostrud cillum sunt ut ex. Velit nisi pariatur aute
 				adipisicing minim dolor ad. Culpa cupidatat id labore culpa tempor
 				veniam ipsum voluptate.
+				<Footer />
 			</Content>
 		</div>
 	);
