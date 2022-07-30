@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faBell, faGear } from '@fortawesome/free-solid-svg-icons';
 
 import MenuItem from './MenuItem';
+import styles from './Navbar.module.scss';
 
 const username = 'Patrick Mahloy';
 
@@ -25,21 +26,15 @@ const menu_items_Setup = ['Roles', 'Policies', 'Tasks', 'Groups'];
 const menu_items_Settings = ['Global Settings'];
 const menu_items_User = ['Preferences', 'Need Help?'];
 
-const nav_styles = {
-	display: 'flex',
-	justifyContent: 'space-between',
-	backgroundColor: '#0f3b56'
-};
-
 export default function Navbar() {
 	return (
-		<nav style={nav_styles}>
+		<nav className={styles.nav}>
 			<div>
-				<MenuItem
+				{/* <MenuItem
 					hasCaret={false}
 					menu_title={<FontAwesomeIcon icon={faBars} />}
 					menu_items={[]}
-				/>
+				/> */}
         <MenuItem
           hasCaret={false}
           menu_title="Home"
