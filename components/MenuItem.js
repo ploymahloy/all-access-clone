@@ -2,38 +2,39 @@ import React, { useEffect, useState, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
-import styles from './MenuItem.module.css';
-
-const useOutsideClick = (callback) => {
-	const ref = useRef();
-
-	useEffect(() => {
-		const handleClick = (event) => {
-			if (ref.current && !ref.current.contains(event.target)) {
-				callback();
-			}
-		};
-
-		document.addEventListener('click', handleClick);
-
-		return () => {
-			document.removeEventListener('click', handleClick);
-		};
-	}, [ref]);
-
-	return ref;
-};
+import styles from './MenuItem.module.scss';
 
 export default function MenuItem(props) {
 	const { hasCaret, menu_title, menu_items } = props;
 	const [isActive, setIsActive] = useState(false);
 
-	const handleClick = () => {
-		setIsActive((current) => !current);
+	const handleClickOutside = () => {
+		console.log('Outside click');
+		setIsActive(false);
 	};
 
-	const handleClickOutside = () => {
-		console.log('Clicked outside');
+	const handleClick = () => {
+		setIsActive((currentVal) => !currentVal);
+	};
+
+	const useOutsideClick = (callback) => {
+		const ref = useRef();
+
+		useEffect(() => {
+			const handleClick = (e) => {
+				if (ref.current && !ref.current.contains(e.target)) {
+					callback();
+				}
+			};
+
+			document.addEventListener('click', handleClick, true);
+
+			return () => {
+				document.removeEventListener('click', handleClick, true);
+			};
+		}, [ref]);
+
+		return ref;
 	};
 
 	const ref = useOutsideClick(handleClickOutside);
@@ -41,6 +42,8 @@ export default function MenuItem(props) {
 	return (
 		<div className={styles.dropdown}>
 			<button
+				ref={ref}
+				type="button"
 				className={styles.dropbtn}
 				style={{ backgroundColor: isActive ? '#42aad7' : 'inherit' }}
 				onClick={handleClick}
